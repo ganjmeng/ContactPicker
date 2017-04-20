@@ -88,7 +88,8 @@ UISearchBarDelegate,UISearchDisplayDelegate>
                     if ([contactPush.portrait isEqualToString:model.portrait]) {
                         NSLog(@"%@", model.name);
                         model.isSelected = @"1";
-                        
+                        //注意这个也要加
+                        [self.selectedArr addObject:model];
                     }
                 }
             }
