@@ -161,8 +161,8 @@ UISearchBarDelegate,UISearchDisplayDelegate>
     if (!label) {
         label = [[UILabel alloc] init];
         [label setFont:[UIFont systemFontOfSize:14.5f]];
-        [label setTextColor:[UIColor grayColor]];
-        [label setBackgroundColor:[UIColor colorWithRed:240.0/255 green:240.0/255 blue:240.0/255 alpha:1]];
+        [label setTextColor:[UIColor whiteColor]];
+        [label setBackgroundColor:[UIColor redColor]];
     }
     [label setText:[NSString stringWithFormat:@"  %@",_sectionArr[section+1]]];
     return label;
