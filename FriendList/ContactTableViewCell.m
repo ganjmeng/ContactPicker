@@ -12,6 +12,14 @@
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 
+@interface ContactTableViewCell ()
+
+@property (nonatomic,strong) UIImageView *headImageView;//头像
+@property (nonatomic,strong) UILabel *nameLabel;//姓名
+@property (nonatomic,strong) UIButton *selectButton;//选择按钮
+
+@end
+
 @implementation ContactTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -41,11 +49,6 @@
 
 
 - (void)testAction:(UIButton *)sender{
-    
-    
-
-    _customSelected = !_customSelected;
-    
 
     if ([self.contact.isSelected isEqualToString:@"0"]) {
    
@@ -59,7 +62,7 @@
     }
 
     
-    !_selectedBlock ?: _selectedBlock(_customSelected,self.contact);
+    !_selectedBlock ?: _selectedBlock(self.contact);
 
     
 }
@@ -85,11 +88,7 @@
 //        [_selectButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
 //        
 //        [_selectButton setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
-        
-
-
         [_selectButton setTitle:@"⚪️" forState:UIControlStateNormal];
-        [_selectButton setTitle:@"🔴" forState:UIControlStateSelected];
         
 
 
@@ -113,9 +112,6 @@
     return _nameLabel;
 }
 
-- (void)awakeFromNib {
-    // Initialization code
-}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

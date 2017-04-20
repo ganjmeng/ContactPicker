@@ -212,12 +212,13 @@ UISearchBarDelegate,UISearchDisplayDelegate>
     //加入选择数组中
     
     __weak typeof(self)weakSelf = self;
-    cell.selectedBlock = ^(BOOL isSelected, ContactModel *contact){
+    cell.selectedBlock = ^(ContactModel *contact){
         
-        if (isSelected) {
+        if ([contact.isSelected isEqualToString:@"1"]) {
             [weakSelf.selectedArr addObject:contact];
         }else{
-            if ([weakSelf.selectedArr containsObject:contact])  [weakSelf.selectedArr removeObject:contact];
+            if ([weakSelf.selectedArr containsObject:contact])
+                [weakSelf.selectedArr removeObject:contact];
         }
         
     };
